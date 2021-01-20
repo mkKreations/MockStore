@@ -17,6 +17,7 @@ class AppsViewController: UIViewController {
 		UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
 	}()
 	private var datasource: UICollectionViewDiffableDataSource<Section, App>!
+	private let sections: [Section] = Bundle.main.decode([Section].self, from: "appstore.json")
 	
 	
 	// MARK: view life cycle
@@ -33,6 +34,10 @@ class AppsViewController: UIViewController {
 		
 		// collectionView config
 		configureCollectionView()
+		configureDatasource()
+		
+		// apply initial snapshot
+		applySnapshot()
 		
 		// TODO: will be removed when we add cells
 		navBarDividerSetUp()
@@ -42,6 +47,7 @@ class AppsViewController: UIViewController {
 	// MARK: helpers
 	private func configureCollectionView() {
 		collectionView.translatesAutoresizingMaskIntoConstraints = false
+		collectionView.register(FeaturedCell.self, forCellWithReuseIdentifier: FeaturedCell.reuseIdentifier)
 		view.addSubview(collectionView)
 		
 		layoutCollectionView()
@@ -55,7 +61,27 @@ class AppsViewController: UIViewController {
 	}
 	
 	private func configureDatasource() {
-		// TODO: implement
+		datasource = UICollectionViewDiffableDataSource(collectionView: collectionView, cellProvider: { (collectionView, indexPath, app) -> UICollectionViewCell? in
+			switch self.sections[indexPath.section].type {
+			default:
+				return self.configure(FeaturedCell.self, with: app, for: indexPath)
+			}
+		})
+	}
+	
+	private func configure<T: SelfConfiguringCell>(_ cellType: T.Type, with app: App, for indexPath: IndexPath) -> T {
+		guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellType.reuseIdentifier, for: indexPath) as? T else {
+			fatalError("Unable to dequeue \(cellType)")
+		}
+		cell.configure(with: app)
+		return cell
+	}
+	
+	private func applySnapshot() {
+		var snapshot = NSDiffableDataSourceSnapshot<Section, App>()
+		snapshot.appendSections(sections) // append sections
+		sections.forEach { snapshot.appendItems($0.items, toSection: $0) } // appends items to section
+		datasource.apply(snapshot)
 	}
 	
 	// TODO: will be removed when we add cells
