@@ -10,6 +10,7 @@ import UIKit
 class AppsViewController: UIViewController {
 	// MARK: internal properties
 	private lazy var collectionView: UICollectionView = {
+		// lazy so I can call methods within and don't have to use forced unwrapped options
 		UICollectionView(frame: .zero, collectionViewLayout: createCompositionalLayout())
 	}()
 	private var datasource: UICollectionViewDiffableDataSource<Section, App>!
@@ -23,10 +24,9 @@ class AppsViewController: UIViewController {
 		// nav bar setup
 		title = "Apps"
 		navigationController?.navigationBar.prefersLargeTitles = true
-		navigationController?.navigationBar.isTranslucent = false
 		
-		// view background
-		view.backgroundColor = .black
+		// collectionView background adapts to light/dark mode
+		collectionView.backgroundColor = .systemBackground
 		
 		// collectionView config
 		configureCollectionView()

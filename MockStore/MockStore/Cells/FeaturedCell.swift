@@ -19,6 +19,7 @@ class FeaturedCell: UICollectionViewCell, SelfConfiguringCell {
 	
 	
 	// MARK: internal properties
+	private let separator: UIView = UIView(frame: .zero)
 	private let taglineLabel: UILabel = UILabel(frame: .zero)
 	private let nameLabel: UILabel = UILabel(frame: .zero)
 	private let subtitleLabel: UILabel = UILabel(frame: .zero)
@@ -40,6 +41,8 @@ class FeaturedCell: UICollectionViewCell, SelfConfiguringCell {
 	
 	// MARK: helpers
 	private func configureSubviews() {
+		separator.backgroundColor = .quaternaryLabel
+		
 		// UIFontMetrics.default.scaledFont supports dynamic type
 		taglineLabel.font = UIFontMetrics.default.scaledFont(for: UIFont.systemFont(ofSize: 12, weight: .bold))
 		taglineLabel.textColor = .systemBlue
@@ -56,11 +59,14 @@ class FeaturedCell: UICollectionViewCell, SelfConfiguringCell {
 		
 		vertStackView.translatesAutoresizingMaskIntoConstraints = false
 		vertStackView.axis = .vertical
+		vertStackView.setCustomSpacing(10.0, after: separator) // custom spacing to match layout
 		vertStackView.setCustomSpacing(10.0, after: subtitleLabel) // custom spacing to match layout
-		[taglineLabel, nameLabel, subtitleLabel, featuredImageView].forEach { vertStackView.addArrangedSubview($0) }
+		[separator, taglineLabel, nameLabel, subtitleLabel, featuredImageView].forEach { vertStackView.addArrangedSubview($0) }
 		contentView.addSubview(vertStackView)
 	}
 	private func autoLayoutSubviews() {
+		separator.heightAnchor.constraint(equalToConstant: 1.0).isActive = true
+		
 		vertStackView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
 		vertStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
 		vertStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
