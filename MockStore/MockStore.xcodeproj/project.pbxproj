@@ -16,6 +16,7 @@
 		2C2D2AE325B7AAF50051FD27 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2D2AE225B7AAF50051FD27 /* Section.swift */; };
 		2C2D2AE625B7ABB60051FD27 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2D2AE525B7ABB60051FD27 /* App.swift */; };
 		2C2D2AEA25B7AD2F0051FD27 /* Bundle+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2D2AE925B7AD2F0051FD27 /* Bundle+extensions.swift */; };
+		2C2D2AEE25B7B3C30051FD27 /* SelfConfiguringCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2D2AED25B7B3C30051FD27 /* SelfConfiguringCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		2C2D2AE225B7AAF50051FD27 /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 		2C2D2AE525B7ABB60051FD27 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		2C2D2AE925B7AD2F0051FD27 /* Bundle+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+extensions.swift"; sourceTree = "<group>"; };
+		2C2D2AED25B7B3C30051FD27 /* SelfConfiguringCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfConfiguringCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 		2C2D2ABF25B77C0D0051FD27 /* MockStore */ = {
 			isa = PBXGroup;
 			children = (
+				2C2D2AEC25B7B3B80051FD27 /* Protocols */,
 				2C2D2AE825B7AD1B0051FD27 /* Extensions */,
 				2C2D2AE125B7AAC90051FD27 /* Models */,
 				2C2D2AD825B77E160051FD27 /* Controllers */,
@@ -114,6 +117,14 @@
 				2C2D2AE925B7AD2F0051FD27 /* Bundle+extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		2C2D2AEC25B7B3B80051FD27 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				2C2D2AED25B7B3C30051FD27 /* SelfConfiguringCell.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,6 +203,7 @@
 				2C2D2AE625B7ABB60051FD27 /* App.swift in Sources */,
 				2C2D2ADA25B77E210051FD27 /* AppsViewController.swift in Sources */,
 				2C2D2AC125B77C0D0051FD27 /* AppDelegate.swift in Sources */,
+				2C2D2AEE25B7B3C30051FD27 /* SelfConfiguringCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
