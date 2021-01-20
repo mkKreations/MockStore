@@ -8,13 +8,9 @@
 import UIKit
 
 class AppsViewController: UIViewController {
-	// TODO: will be removed when we add cells
-	private let navBarDivider: UIView = UIView(frame: .zero)
-	
-	
 	// MARK: internal properties
 	private lazy var collectionView: UICollectionView = {
-		UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+		UICollectionView(frame: .zero, collectionViewLayout: createCompositionalLayout())
 	}()
 	private var datasource: UICollectionViewDiffableDataSource<Section, App>!
 	private let sections: [Section] = Bundle.main.decode([Section].self, from: "appstore.json")
@@ -38,9 +34,6 @@ class AppsViewController: UIViewController {
 		
 		// apply initial snapshot
 		applySnapshot()
-		
-		// TODO: will be removed when we add cells
-		navBarDividerSetUp()
 	}
 	
 	
@@ -84,16 +77,37 @@ class AppsViewController: UIViewController {
 		datasource.apply(snapshot)
 	}
 	
-	// TODO: will be removed when we add cells
-	private func navBarDividerSetUp() {
-		navBarDivider.translatesAutoresizingMaskIntoConstraints = false
-		navBarDivider.backgroundColor = .darkGray
-		view.addSubview(navBarDivider)
+	private func createCompositionalLayout() -> UICollectionViewCompositionalLayout {
+		let layout = UICollectionViewCompositionalLayout { (sectionIndex, _) -> NSCollectionLayoutSection? in
+			let currentSection = self.sections[sectionIndex]
+			
+			switch currentSection {
+			default:
+				return self.createFeaturedSection(using: currentSection)
+			}
+		}
+
+		// assign section spacing using layout config
+		let config = UICollectionViewCompositionalLayoutConfiguration()
+		config.interSectionSpacing = 20.0
+		layout.configuration = config
+		return layout
+	}
+	
+	private func createFeaturedSection(using section: Section) -> NSCollectionLayoutSection {
+		let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+																					heightDimension: .fractionalHeight(1.0))
+		let item = NSCollectionLayoutItem(layoutSize: itemSize)
+		item.contentInsets = NSDirectionalEdgeInsets(top: 0.0, leading: 5.0, bottom: 0.0, trailing: 5.0)
 		
-		navBarDivider.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 12.0).isActive = true
-		navBarDivider.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -12.0).isActive = true
-		navBarDivider.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-		navBarDivider.heightAnchor.constraint(equalToConstant: 0.5).isActive = true
+		let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.93),
+																					 heightDimension: .estimated(350.0))
+		let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+		
+		let section = NSCollectionLayoutSection(group: group)
+		section.orthogonalScrollingBehavior = .groupPagingCentered
+		
+		return section
 	}
 	
 }
