@@ -11,6 +11,14 @@ class AppsViewController: UIViewController {
 	// TODO: will be removed when we add cells
 	private let navBarDivider: UIView = UIView(frame: .zero)
 	
+	
+	// MARK: internal properties
+	private lazy var collectionView: UICollectionView = {
+		UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+	}()
+	
+	
+	// MARK: view life cycle
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
@@ -22,8 +30,27 @@ class AppsViewController: UIViewController {
 		// view background
 		view.backgroundColor = .black
 		
+		// collectionView config
+		configureCollectionView()
+		
 		// TODO: will be removed when we add cells
 		navBarDividerSetUp()
+	}
+	
+	
+	// MARK: helpers
+	private func configureCollectionView() {
+		collectionView.translatesAutoresizingMaskIntoConstraints = false
+		view.addSubview(collectionView)
+		
+		layoutCollectionView()
+	}
+	
+	private func layoutCollectionView() {
+		collectionView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+		collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+		collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+		collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
 	}
 	
 	// TODO: will be removed when we add cells

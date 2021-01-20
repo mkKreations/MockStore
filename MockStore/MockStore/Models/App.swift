@@ -13,5 +13,5 @@ struct App: Decodable, Hashable {
 	let name: String
 	let subheading: String
 	let image: String
-	let iap: Bool
+	let iap: Bool // in-app purchase
 }
