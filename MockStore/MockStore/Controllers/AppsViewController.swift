@@ -16,6 +16,7 @@ class AppsViewController: UIViewController {
 	private lazy var collectionView: UICollectionView = {
 		UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
 	}()
+	private var datasource: UICollectionViewDiffableDataSource<Section, App>!
 	
 	
 	// MARK: view life cycle
@@ -51,6 +52,10 @@ class AppsViewController: UIViewController {
 		collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
 		collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
 		collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+	}
+	
+	private func configureDatasource() {
+		// TODO: implement
 	}
 	
 	// TODO: will be removed when we add cells
