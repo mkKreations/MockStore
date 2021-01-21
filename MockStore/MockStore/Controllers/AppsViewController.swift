@@ -41,6 +41,7 @@ class AppsViewController: UIViewController {
 	private func configureCollectionView() {
 		collectionView.translatesAutoresizingMaskIntoConstraints = false
 		collectionView.register(FeaturedCell.self, forCellWithReuseIdentifier: FeaturedCell.reuseIdentifier)
+		collectionView.register(MediumTableCell.self, forCellWithReuseIdentifier: MediumTableCell.reuseIdentifier)
 		view.addSubview(collectionView)
 		
 		layoutCollectionView()
@@ -56,8 +57,11 @@ class AppsViewController: UIViewController {
 	private func configureDatasource() {
 		datasource = UICollectionViewDiffableDataSource(collectionView: collectionView, cellProvider: { (collectionView, indexPath, app) -> UICollectionViewCell? in
 			switch self.sections[indexPath.section].type {
+//			case "mediumTable":
+//				return self.configure(MediumTableCell.self, with: app, for: indexPath)
 			default:
-				return self.configure(FeaturedCell.self, with: app, for: indexPath)
+				return self.configure(MediumTableCell.self, with: app, for: indexPath)
+//				return self.configure(FeaturedCell.self, with: app, for: indexPath)
 			}
 		})
 	}
@@ -66,6 +70,7 @@ class AppsViewController: UIViewController {
 		guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellType.reuseIdentifier, for: indexPath) as? T else {
 			fatalError("Unable to dequeue \(cellType)")
 		}
+//		print("CONFIGURING")
 		cell.configure(with: app)
 		return cell
 	}
@@ -81,9 +86,12 @@ class AppsViewController: UIViewController {
 		let layout = UICollectionViewCompositionalLayout { (sectionIndex, _) -> NSCollectionLayoutSection? in
 			let currentSection = self.sections[sectionIndex]
 			
-			switch currentSection {
+			switch currentSection.type {
+//			case "mediumTable":
+//				return self.createMediumTableCellSection(using: currentSection)
 			default:
-				return self.createFeaturedSection(using: currentSection)
+				return self.createMediumTableCellSection(using: currentSection)
+//				return self.createFeaturedSection(using: currentSection)
 			}
 		}
 
@@ -103,6 +111,24 @@ class AppsViewController: UIViewController {
 		let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.93),
 																					 heightDimension: .estimated(350.0))
 		let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+		
+		let section = NSCollectionLayoutSection(group: group)
+		section.orthogonalScrollingBehavior = .groupPagingCentered
+		
+		return section
+	}
+	
+	private func createMediumTableCellSection(using section: Section) -> NSCollectionLayoutSection {
+		let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+																					heightDimension: .estimated(60.0))
+		let item = NSCollectionLayoutItem(layoutSize: itemSize)
+		item.contentInsets = NSDirectionalEdgeInsets(top: 0.0, leading: 5.0, bottom: 0.0, trailing: 5.0)
+		
+		let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.93),
+																					 heightDimension: .estimated(180.0))
+		let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize,
+																								 subitem: item,
+																								 count: 3)
 		
 		let section = NSCollectionLayoutSection(group: group)
 		section.orthogonalScrollingBehavior = .groupPagingCentered
