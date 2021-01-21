@@ -18,7 +18,7 @@ protocol SelfConfiguringCell {
 	func showsSeparator(shows: Bool) // has default implementation below
 }
 
-// default implementation for any "specific" cases
+// MARK: default implementation for any "specific" cases
 
 // in this case we only want one type of cell that
 // conforms to SelfConfiguringCell to display a
@@ -28,5 +28,5 @@ protocol SelfConfiguringCell {
 // desired type that conforms to SelfConfiguringCell,
 // not each and every type that conforms
 extension SelfConfiguringCell {
-	func showsSeparator(shows: Bool) {}
+	func showsSeparator(shows: Bool) {} // only applies to MediumTableCell
 }
