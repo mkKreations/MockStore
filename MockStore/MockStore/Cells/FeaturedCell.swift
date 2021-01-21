@@ -41,6 +41,7 @@ class FeaturedCell: UICollectionViewCell, SelfConfiguringCell {
 	
 	// MARK: helpers
 	private func configureSubviews() {
+		separator.translatesAutoresizingMaskIntoConstraints = false
 		separator.backgroundColor = .quaternaryLabel
 		
 		// UIFontMetrics.default.scaledFont supports dynamic type
