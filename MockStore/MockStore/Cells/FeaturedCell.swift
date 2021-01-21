@@ -9,7 +9,7 @@ import UIKit
 
 class FeaturedCell: UICollectionViewCell, SelfConfiguringCell {
 	// MARK: SelfConfiguringCell conformance
-	static var reuseIdentifier: String = String(describing: self)
+	static var reuseIdentifier: String = UUID().uuidString
 	func configure(with app: App) {
 		taglineLabel.text = app.tagline.uppercased()
 		nameLabel.text = app.name

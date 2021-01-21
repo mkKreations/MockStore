@@ -57,15 +57,13 @@ class AppsViewController: UIViewController {
 	private func configureDatasource() {
 		datasource = UICollectionViewDiffableDataSource(collectionView: collectionView, cellProvider: { (collectionView, indexPath, app) -> UICollectionViewCell? in
 			switch self.sections[indexPath.section].type {
-//			case "mediumTable":
-//				return self.configure(MediumTableCell.self, with: app, for: indexPath)
-			default:
-				let cell = self.configure(MediumTableCell.self, with: app, for: indexPath)
+			case "mediumTable":
 				// only show separator if the cell indexPath.row + 1 is not divisible by 3
+				let cell = self.configure(MediumTableCell.self, with: app, for: indexPath)
 				cell.showsSeparator(shows: (indexPath.row + 1) % 3 != 0)
 				return cell
-//				return self.configure(MediumTableCell.self, with: app, for: indexPath)
-//				return self.configure(FeaturedCell.self, with: app, for: indexPath)
+			default:
+				return self.configure(FeaturedCell.self, with: app, for: indexPath)
 			}
 		})
 	}
@@ -90,11 +88,10 @@ class AppsViewController: UIViewController {
 			let currentSection = self.sections[sectionIndex]
 			
 			switch currentSection.type {
-//			case "mediumTable":
-//				return self.createMediumTableCellSection(using: currentSection)
+			case "mediumTable":
+				return self.createMediumTableSection(using: currentSection)
 			default:
-				return self.createMediumTableCellSection(using: currentSection)
-//				return self.createFeaturedSection(using: currentSection)
+				return self.createFeaturedSection(using: currentSection)
 			}
 		}
 
@@ -121,9 +118,9 @@ class AppsViewController: UIViewController {
 		return section
 	}
 	
-	private func createMediumTableCellSection(using section: Section) -> NSCollectionLayoutSection {
+	private func createMediumTableSection(using section: Section) -> NSCollectionLayoutSection {
 		let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-																					heightDimension: .estimated(60.0))
+																					heightDimension: .fractionalHeight(0.33))
 		let item = NSCollectionLayoutItem(layoutSize: itemSize)
 		item.contentInsets = NSDirectionalEdgeInsets(top: 0.0, leading: 5.0, bottom: 0.0, trailing: 5.0)
 		
