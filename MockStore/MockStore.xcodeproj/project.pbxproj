@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C2327BB25B92B4E001A50C5 /* UIButton+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2327BA25B92B4E001A50C5 /* UIButton+extensions.swift */; };
 		2C2D2AC125B77C0D0051FD27 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2D2AC025B77C0D0051FD27 /* AppDelegate.swift */; };
 		2C2D2AC825B77C0D0051FD27 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C2D2AC625B77C0D0051FD27 /* Main.storyboard */; };
 		2C2D2ACA25B77C100051FD27 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C2D2AC925B77C100051FD27 /* Assets.xcassets */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2C2327BA25B92B4E001A50C5 /* UIButton+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+extensions.swift"; sourceTree = "<group>"; };
 		2C2D2ABD25B77C0D0051FD27 /* MockStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MockStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C2D2AC025B77C0D0051FD27 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2C2D2AC725B77C0D0051FD27 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				2C2D2AE925B7AD2F0051FD27 /* Bundle+extensions.swift */,
+				2C2327BA25B92B4E001A50C5 /* UIButton+extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -218,6 +221,7 @@
 				2C2D2AE625B7ABB60051FD27 /* App.swift in Sources */,
 				2C2D2ADA25B77E210051FD27 /* AppsViewController.swift in Sources */,
 				2C2D2AF225B7B7A30051FD27 /* FeaturedCell.swift in Sources */,
+				2C2327BB25B92B4E001A50C5 /* UIButton+extensions.swift in Sources */,
 				2C2D2AC125B77C0D0051FD27 /* AppDelegate.swift in Sources */,
 				2C2D2AEE25B7B3C30051FD27 /* SelfConfiguringCell.swift in Sources */,
 			);
