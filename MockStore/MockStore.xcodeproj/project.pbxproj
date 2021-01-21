@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2C2327BB25B92B4E001A50C5 /* UIButton+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2327BA25B92B4E001A50C5 /* UIButton+extensions.swift */; };
+		2C2327BE25BA4882001A50C5 /* SmallTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2327BD25BA4882001A50C5 /* SmallTableCell.swift */; };
 		2C2D2AC125B77C0D0051FD27 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2D2AC025B77C0D0051FD27 /* AppDelegate.swift */; };
 		2C2D2AC825B77C0D0051FD27 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C2D2AC625B77C0D0051FD27 /* Main.storyboard */; };
 		2C2D2ACA25B77C100051FD27 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C2D2AC925B77C100051FD27 /* Assets.xcassets */; };
@@ -24,6 +25,7 @@
 
 /* Begin PBXFileReference section */
 		2C2327BA25B92B4E001A50C5 /* UIButton+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+extensions.swift"; sourceTree = "<group>"; };
+		2C2327BD25BA4882001A50C5 /* SmallTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallTableCell.swift; sourceTree = "<group>"; };
 		2C2D2ABD25B77C0D0051FD27 /* MockStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MockStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C2D2AC025B77C0D0051FD27 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2C2D2AC725B77C0D0051FD27 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 			children = (
 				2C2D2AF125B7B7A30051FD27 /* FeaturedCell.swift */,
 				2C44683E25B8917A0086127D /* MediumTableCell.swift */,
+				2C2327BD25BA4882001A50C5 /* SmallTableCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -217,6 +220,7 @@
 			files = (
 				2C2D2AEA25B7AD2F0051FD27 /* Bundle+extensions.swift in Sources */,
 				2C44683F25B8917A0086127D /* MediumTableCell.swift in Sources */,
+				2C2327BE25BA4882001A50C5 /* SmallTableCell.swift in Sources */,
 				2C2D2AE325B7AAF50051FD27 /* Section.swift in Sources */,
 				2C2D2AE625B7ABB60051FD27 /* App.swift in Sources */,
 				2C2D2ADA25B77E210051FD27 /* AppsViewController.swift in Sources */,
