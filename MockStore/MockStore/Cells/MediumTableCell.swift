@@ -12,7 +12,7 @@ class MediumTableCell: UICollectionViewCell, SelfConfiguringCell {
 	static var reuseIdentifier: String = String(describing: self)
 	func configure(with app: App) {
 		nameLabel.text = app.name
-		subtitleLabel.text = app.subheading
+		setSubtitleAttributeText(forString: app.subheading)
 		imageView.image = UIImage(named: app.image)
 	}
 	func showsSeparator(shows: Bool) {
@@ -23,7 +23,7 @@ class MediumTableCell: UICollectionViewCell, SelfConfiguringCell {
 	// MARK: layout constants
 	private static let imageViewSize: CGFloat = 50.0
 	private static let horizontalStackViewSpacing: CGFloat = 10.0
-	private static let verticalStackViewMargin: CGFloat = 5.0
+	private static let verticalStackViewMargin: CGFloat = 2.0
 	private static let buyButtonHeight: CGFloat = 28.0
 	private static let buyButtonWidth: CGFloat = 70.0
 	private static let separatorHeight: CGFloat = 1.0
@@ -56,9 +56,7 @@ class MediumTableCell: UICollectionViewCell, SelfConfiguringCell {
 		nameLabel.font = UIFont.preferredFont(forTextStyle: .headline)
 		nameLabel.textColor = .label
 
-		// can't decide which font I prefer
-//		subtitleLabel.font = UIFont.preferredFont(forTextStyle: .subheadline)
-		subtitleLabel.font = UIFont.preferredFont(forTextStyle: .caption2)
+		subtitleLabel.font = UIFont.preferredFont(forTextStyle: .caption1)
 		subtitleLabel.textColor = .secondaryLabel
 		subtitleLabel.numberOfLines = 2
 		
@@ -79,6 +77,7 @@ class MediumTableCell: UICollectionViewCell, SelfConfiguringCell {
 
 		[nameLabel, subtitleLabel].forEach { labelsStackView.addArrangedSubview($0) }
 		labelsStackView.distribution = .fill
+		labelsStackView.spacing = 2.0
 		labelsStackView.axis = .vertical
 		
 		imageLabelsButtonStackView.translatesAutoresizingMaskIntoConstraints = false
@@ -109,6 +108,16 @@ class MediumTableCell: UICollectionViewCell, SelfConfiguringCell {
 		separator.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Self.imageViewSize + Self.horizontalStackViewSpacing).isActive = true
 		separator.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
 		separator.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+	}
+	
+	private func setSubtitleAttributeText(forString string: String) {
+		let attributedString = NSMutableAttributedString(string: string)
+		let paragraphStyle = NSMutableParagraphStyle()
+		// I swear this negative line spacing has an effect
+		// even though documentation says it should not
+		paragraphStyle.lineSpacing = -5.0
+		attributedString.addAttribute(NSAttributedString.Key.paragraphStyle, value:paragraphStyle, range:NSMakeRange(0, attributedString.length))
+		subtitleLabel.attributedText = attributedString
 	}
 	
 	@objc func buyButtonPressed(_ sender: UIButton) {
