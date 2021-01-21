@@ -15,7 +15,10 @@ class MediumTableCell: UICollectionViewCell, SelfConfiguringCell {
 		subtitleLabel.text = app.subheading
 		imageView.image = UIImage(named: app.image)
 	}
-	
+	func showsSeparator(shows: Bool) {
+		separator.isHidden = !shows
+	}
+
 	
 	// MARK: layout constants
 	private static let imageViewSize: CGFloat = 50.0

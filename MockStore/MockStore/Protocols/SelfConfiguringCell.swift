@@ -15,4 +15,18 @@ import Foundation
 protocol SelfConfiguringCell {
 	static var reuseIdentifier: String { get }
 	func configure(with app: App)
+	func showsSeparator(shows: Bool) // has default implementation below
+}
+
+// default implementation for any "specific" cases
+
+// in this case we only want one type of cell that
+// conforms to SelfConfiguringCell to display a
+// separator - not every type that will conform. As
+// such, providing a default implementation ensures
+// that we only have to define this method in the
+// desired type that conforms to SelfConfiguringCell,
+// not each and every type that conforms
+extension SelfConfiguringCell {
+	func showsSeparator(shows: Bool) {}
 }

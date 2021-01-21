@@ -60,7 +60,11 @@ class AppsViewController: UIViewController {
 //			case "mediumTable":
 //				return self.configure(MediumTableCell.self, with: app, for: indexPath)
 			default:
-				return self.configure(MediumTableCell.self, with: app, for: indexPath)
+				let cell = self.configure(MediumTableCell.self, with: app, for: indexPath)
+				// only show separator if the cell indexPath.row + 1 is not divisible by 3
+				cell.showsSeparator(shows: (indexPath.row + 1) % 3 != 0)
+				return cell
+//				return self.configure(MediumTableCell.self, with: app, for: indexPath)
 //				return self.configure(FeaturedCell.self, with: app, for: indexPath)
 			}
 		})
@@ -70,7 +74,6 @@ class AppsViewController: UIViewController {
 		guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellType.reuseIdentifier, for: indexPath) as? T else {
 			fatalError("Unable to dequeue \(cellType)")
 		}
-//		print("CONFIGURING")
 		cell.configure(with: app)
 		return cell
 	}
