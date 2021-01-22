@@ -59,7 +59,8 @@ class AppsViewController: UIViewController {
 	}
 	
 	private func configureDatasource() {
-		datasource = UICollectionViewDiffableDataSource(collectionView: collectionView, cellProvider: { (collectionView, indexPath, app) -> UICollectionViewCell? in
+		datasource = UICollectionViewDiffableDataSource(collectionView: collectionView, cellProvider: { [unowned self]
+			(collectionView, indexPath, app) -> UICollectionViewCell? in
 			// extract current section
 			let currentSection = self.sections[indexPath.section]
 			
@@ -80,7 +81,12 @@ class AppsViewController: UIViewController {
 			}
 		})
 		
-		datasource.supplementaryViewProvider = { (view, kind, indexPath) -> UICollectionReusableView? in
+		configureDatasourceSupplementaryProvider()
+	}
+	
+	private func configureDatasourceSupplementaryProvider() {
+		datasource.supplementaryViewProvider = { [unowned self]
+			(view, kind, indexPath) -> UICollectionReusableView? in
 			// extract current section
 			let currentSection = self.sections[indexPath.section]
 			print("HEADER CURRENT SECTION!!!!")
