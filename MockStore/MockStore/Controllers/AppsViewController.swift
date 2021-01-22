@@ -42,6 +42,7 @@ class AppsViewController: UIViewController {
 		collectionView.translatesAutoresizingMaskIntoConstraints = false
 		collectionView.register(FeaturedCell.self, forCellWithReuseIdentifier: FeaturedCell.reuseIdentifier)
 		collectionView.register(MediumTableCell.self, forCellWithReuseIdentifier: MediumTableCell.reuseIdentifier)
+		collectionView.register(SmallTableCell.self, forCellWithReuseIdentifier: SmallTableCell.reuseIdentifier)
 		view.addSubview(collectionView)
 		
 		layoutCollectionView()
@@ -56,7 +57,16 @@ class AppsViewController: UIViewController {
 	
 	private func configureDatasource() {
 		datasource = UICollectionViewDiffableDataSource(collectionView: collectionView, cellProvider: { (collectionView, indexPath, app) -> UICollectionViewCell? in
-			switch self.sections[indexPath.section].type {
+			// extract current section
+			let currentSection = self.sections[indexPath.section]
+			
+			// switch on Section.type
+			switch currentSection.type {
+			case "smallTable":
+				// only show separator if isn't the last cell
+				let cell = self.configure(SmallTableCell.self, with: app, for: indexPath)
+				cell.showsSeparator(shows: currentSection.items.count != (indexPath.row + 1))
+				return cell
 			case "mediumTable":
 				// only show separator if the cell indexPath.row + 1 is not divisible by 3
 				let cell = self.configure(MediumTableCell.self, with: app, for: indexPath)
@@ -85,9 +95,13 @@ class AppsViewController: UIViewController {
 	
 	private func createCompositionalLayout() -> UICollectionViewCompositionalLayout {
 		let layout = UICollectionViewCompositionalLayout { (sectionIndex, _) -> NSCollectionLayoutSection? in
+			// extract current section
 			let currentSection = self.sections[sectionIndex]
 			
+			// switch on Section.type
 			switch currentSection.type {
+			case "smallTable":
+				return self.createSmallTableSection(using: currentSection)
 			case "mediumTable":
 				return self.createMediumTableSection(using: currentSection)
 			default:
@@ -133,6 +147,23 @@ class AppsViewController: UIViewController {
 		let section = NSCollectionLayoutSection(group: group)
 		section.orthogonalScrollingBehavior = .groupPagingCentered
 		
+		return section
+	}
+	
+	private func createSmallTableSection(using section: Section) -> NSCollectionLayoutSection {
+		let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+																					heightDimension: .fractionalHeight(0.20))
+		let item = NSCollectionLayoutItem(layoutSize: itemSize)
+		item.contentInsets = NSDirectionalEdgeInsets(top: 0.0, leading: 24.0, bottom: 0.0, trailing: 24.0)
+		
+		let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+																					 heightDimension: .estimated(240.0))
+		let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize,
+																								 subitem: item,
+																								 count: 5)
+		
+		let section = NSCollectionLayoutSection(group: group)
+
 		return section
 	}
 	
