@@ -89,20 +89,19 @@ class AppsViewController: UIViewController {
 			(view, kind, indexPath) -> UICollectionReusableView? in
 			// extract current section
 			let currentSection = self.sections[indexPath.section]
-			print("HEADER CURRENT SECTION!!!!")
-
-			if kind == UICollectionView.elementKindSectionHeader && !currentSection.title.isEmpty {
+			
+			if kind == UICollectionView.elementKindSectionHeader {
 				guard let header = self.collectionView.dequeueReusableSupplementaryView(ofKind: kind,
 																																								withReuseIdentifier: SectionHeader.reuseIdentifier,
 																																								for: indexPath) as? SectionHeader else {
 					fatalError("Failed to dequeue SectionHeader")
 				}
-				print("DEQUEUEING HEADER!!!!")
 				header.nameText = currentSection.title
 				header.subtitleText = currentSection.subtitle
 				return header
 			}
-			return nil
+			
+			return nil // we're only providing headers, no footers
 		}
 	}
 	
@@ -122,16 +121,21 @@ class AppsViewController: UIViewController {
 	}
 	
 	private func createCompositionalLayout() -> UICollectionViewCompositionalLayout {
-		let layout = UICollectionViewCompositionalLayout { (sectionIndex, _) -> NSCollectionLayoutSection? in
+		let layout = UICollectionViewCompositionalLayout { [unowned self]
+			(sectionIndex, _) -> NSCollectionLayoutSection? in
 			// extract current section
 			let currentSection = self.sections[sectionIndex]
 			
 			// switch on Section.type
 			switch currentSection.type {
 			case "smallTable":
-				return self.createSmallTableSection(using: currentSection)
+				let section = self.createSmallTableSection(using: currentSection)
+				self.createSectionHeaderLayout(forSection: section) // create section header
+				return section
 			case "mediumTable":
-				return self.createMediumTableSection(using: currentSection)
+				let section = self.createMediumTableSection(using: currentSection)
+				self.createSectionHeaderLayout(forSection: section) // create section header
+				return section
 			default:
 				return self.createFeaturedSection(using: currentSection)
 			}
@@ -139,7 +143,7 @@ class AppsViewController: UIViewController {
 
 		// assign section spacing using layout config
 		let config = UICollectionViewCompositionalLayoutConfiguration()
-		config.interSectionSpacing = 20.0
+		config.interSectionSpacing = 10.0
 		layout.configuration = config
 		return layout
 	}
@@ -156,7 +160,6 @@ class AppsViewController: UIViewController {
 		
 		let layoutSection = NSCollectionLayoutSection(group: group)
 		layoutSection.orthogonalScrollingBehavior = .groupPagingCentered
-//		createSectionHeaderLayout(forSection: layoutSection)
 
 		return layoutSection
 	}
@@ -175,7 +178,6 @@ class AppsViewController: UIViewController {
 		
 		let layoutSection = NSCollectionLayoutSection(group: group)
 		layoutSection.orthogonalScrollingBehavior = .groupPagingCentered
-		createSectionHeaderLayout(forSection: layoutSection)
 
 		return layoutSection
 	}
@@ -193,17 +195,16 @@ class AppsViewController: UIViewController {
 																								 count: 5)
 		
 		let layoutSection = NSCollectionLayoutSection(group: group)
-		createSectionHeaderLayout(forSection: layoutSection)
-
+		
 		return layoutSection
 	}
 	
 	private func createSectionHeaderLayout(forSection section: NSCollectionLayoutSection) {
-		let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+		let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.93),
 																						heightDimension: .estimated(70.0))
 		let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize,
 																																		elementKind: UICollectionView.elementKindSectionHeader,
-																																		alignment: .topLeading)
+																																		alignment: .top)
 		section.boundarySupplementaryItems = [sectionHeader]
 	}
 	
