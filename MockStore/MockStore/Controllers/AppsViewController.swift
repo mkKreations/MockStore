@@ -87,10 +87,11 @@ class AppsViewController: UIViewController {
 	private func configureDatasourceSupplementaryProvider() {
 		datasource.supplementaryViewProvider = { [unowned self]
 			(view, kind, indexPath) -> UICollectionReusableView? in
-			// extract current section
-			let currentSection = self.sections[indexPath.section]
 			
 			if kind == UICollectionView.elementKindSectionHeader {
+				// extract current section from dataSource snapshot
+				let currentSection = self.datasource.snapshot().sectionIdentifiers[indexPath.section]
+				
 				guard let header = self.collectionView.dequeueReusableSupplementaryView(ofKind: kind,
 																																								withReuseIdentifier: SectionHeader.reuseIdentifier,
 																																								for: indexPath) as? SectionHeader else {
@@ -189,7 +190,7 @@ class AppsViewController: UIViewController {
 		item.contentInsets = NSDirectionalEdgeInsets(top: 0.0, leading: 24.0, bottom: 0.0, trailing: 24.0)
 		
 		let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-																					 heightDimension: .estimated(240.0))
+																					 heightDimension: .estimated(200.0))
 		let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize,
 																								 subitem: item,
 																								 count: 5)

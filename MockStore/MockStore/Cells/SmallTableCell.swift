@@ -22,7 +22,6 @@ class SmallTableCell: UICollectionViewCell, SelfConfiguringCell {
 	// MARK: layout constants
 	private static let imageViewSize: CGFloat = 20.0
 	private static let horizontalStackViewSpacing: CGFloat = 15.0
-	private static let verticalStackViewMargin: CGFloat = 10.0
 	private static let separatorHeight: CGFloat = 1.0
 	
 	
@@ -71,8 +70,8 @@ class SmallTableCell: UICollectionViewCell, SelfConfiguringCell {
 		imageView.heightAnchor.constraint(equalToConstant: Self.imageViewSize).isActive = true
 		imageView.widthAnchor.constraint(equalTo: imageView.heightAnchor).isActive = true
 
-		stackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Self.verticalStackViewMargin).isActive = true
-		stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -Self.verticalStackViewMargin).isActive = true
+		stackView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+		stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
 		stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
 		stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
 		
