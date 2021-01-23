@@ -49,10 +49,9 @@ class SectionHeader: UICollectionReusableView {
 	
 	// MARK: helpers
 	private func configureSubviews() {
-		nameLabel.font = UIFont.preferredFont(forTextStyle: .title1)
+		nameLabel.font = UIFontMetrics.default.scaledFont(for: UIFont.systemFont(ofSize: 22, weight: .bold))
 		nameLabel.textColor = .label
 
-		subtitleLabel.font = UIFont.preferredFont(forTextStyle: .body)
 		subtitleLabel.textColor = .secondaryLabel
 		
 		[nameLabel, subtitleLabel].forEach { stackView.addArrangedSubview($0) }
@@ -71,8 +70,8 @@ class SectionHeader: UICollectionReusableView {
 		separator.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
 		separator.topAnchor.constraint(equalTo: topAnchor).isActive = true
 		
-		stackView.topAnchor.constraint(equalTo: separator.bottomAnchor, constant: 5.0).isActive = true
-		stackView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+		stackView.topAnchor.constraint(equalTo: separator.bottomAnchor, constant: 10.0).isActive = true
+		stackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10.0).isActive = true
 		stackView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
 		stackView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
 	}
