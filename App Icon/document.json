@@ -1,0 +1,177 @@
+{
+  "_class": "document",
+  "assets": {
+    "_class": "assetCollection",
+    "colorAssets": [
+    ],
+    "colors": [
+    ],
+    "exportPresets": [
+    ],
+    "gradientAssets": [
+      {
+        "_class": "MSImmutableGradientAsset",
+        "gradient": {
+          "_class": "gradient",
+          "elipseLength": 0,
+          "from": "{0.5, 0}",
+          "gradientType": 0,
+          "stops": [
+            {
+              "_class": "gradientStop",
+              "color": {
+                "_class": "color",
+                "alpha": 1,
+                "blue": 0.984313725490196,
+                "green": 0.7803921568627451,
+                "red": 0.1764705882352942
+              },
+              "position": 0
+            },
+            {
+              "_class": "gradientStop",
+              "color": {
+                "_class": "color",
+                "alpha": 1,
+                "blue": 0.9490196078431372,
+                "green": 0.4431372549019608,
+                "red": 0.1137254901960785
+              },
+              "position": 1
+            }
+          ],
+          "to": "{0.5, 1}"
+        },
+        "name": "Blue Gradient"
+      },
+      {
+        "_class": "MSImmutableGradientAsset",
+        "gradient": {
+          "_class": "gradient",
+          "elipseLength": 0,
+          "from": "{0.5, 0.00068623310810811411}",
+          "gradientType": 0,
+          "stops": [
+            {
+              "_class": "gradientStop",
+              "color": {
+                "_class": "color",
+                "alpha": 0.7034801136363636,
+                "blue": 0.1568627450980392,
+                "green": 0.1568627450980392,
+                "red": 0.1568627450980392
+              },
+              "position": 0.0006862331081081141
+            },
+            {
+              "_class": "gradientStop",
+              "color": {
+                "_class": "color",
+                "alpha": 1,
+                "blue": 0.0784313725490196,
+                "green": 0.0784313725490196,
+                "red": 0.0784313725490196
+              },
+              "position": 1
+            }
+          ],
+          "to": "{0.5, 1}"
+        },
+        "name": "Black Gradient"
+      }
+    ],
+    "gradients": [
+      {
+        "_class": "gradient",
+        "elipseLength": 0,
+        "from": "{0.5, 0}",
+        "gradientType": 0,
+        "stops": [
+          {
+            "_class": "gradientStop",
+            "color": {
+              "_class": "color",
+              "alpha": 1,
+              "blue": 0.984313725490196,
+              "green": 0.7803921568627451,
+              "red": 0.1764705882352942
+            },
+            "position": 0
+          },
+          {
+            "_class": "gradientStop",
+            "color": {
+              "_class": "color",
+              "alpha": 1,
+              "blue": 0.9490196078431372,
+              "green": 0.4431372549019608,
+              "red": 0.1137254901960785
+            },
+            "position": 1
+          }
+        ],
+        "to": "{0.5, 1}"
+      },
+      {
+        "_class": "gradient",
+        "elipseLength": 0,
+        "from": "{0.5, 0.00068623310810811411}",
+        "gradientType": 0,
+        "stops": [
+          {
+            "_class": "gradientStop",
+            "color": {
+              "_class": "color",
+              "alpha": 0.7034801136363636,
+              "blue": 0.1568627450980392,
+              "green": 0.1568627450980392,
+              "red": 0.1568627450980392
+            },
+            "position": 0.0006862331081081141
+          },
+          {
+            "_class": "gradientStop",
+            "color": {
+              "_class": "color",
+              "alpha": 1,
+              "blue": 0.0784313725490196,
+              "green": 0.0784313725490196,
+              "red": 0.0784313725490196
+            },
+            "position": 1
+          }
+        ],
+        "to": "{0.5, 1}"
+      }
+    ],
+    "imageCollection": {
+      "_class": "imageCollection",
+      "images": {
+      }
+    },
+    "images": [
+    ]
+  },
+  "colorSpace": 0,
+  "do_objectID": "C31E8E04-AA68-45F6-8310-6E65BD373196",
+  "foreignLayerStyles": [
+  ],
+  "foreignSymbols": [
+  ],
+  "foreignTextStyles": [
+  ],
+  "layerSymbols": {
+    "_class": "symbolContainer",
+    "objects": [
+    ]
+  },
+  "meta": {
+    "appVersion": "58",
+    "build": 84663,
+    "version": 120
+  },
+  "pages": [
+    "App Icon",
+    "Symbols"
+  ]
+}
