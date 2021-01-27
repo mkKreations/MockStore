@@ -17,6 +17,8 @@ iOS 13! The app currently contains the principal collection view layout found in
 from the bundle. That data is then presented in a single collection view that has varying cells/layouts based on 
 section. 
 
+The app uses a custom app icon created in the Sketch project included in this repo!
+
 
 ## Features
 
@@ -25,6 +27,11 @@ section.
 - Protocol conformance to dequeue reusable cells
 - Single collection view to maintain varying layouts
 - Light/Dark mode compatible
+
+
+## App Icon
+
+<img src="App Icon.png" height="320">
 
 
 ## Feedback
