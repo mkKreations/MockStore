@@ -1,27 +1,11 @@
 {
-  "_class": "artboard",
-  "backgroundColor": {
-    "_class": "color",
-    "alpha": 1,
-    "blue": 1,
-    "green": 1,
-    "red": 1
-  },
-  "booleanOperation": 0,
+  "_class": "group",
+  "booleanOperation": -1,
   "clippingMaskMode": 0,
-  "do_objectID": "0DEF81CE-CCB1-4D3C-A8FC-5E2D9F5A97F7",
+  "do_objectID": "70844D45-4C82-4668-8C80-44880EA10548",
   "exportOptions": {
     "_class": "exportOptions",
     "exportFormats": [
-      {
-        "_class": "exportFormat",
-        "absoluteSize": 0,
-        "fileFormat": "png",
-        "name": "",
-        "namingScheme": 0,
-        "scale": 1,
-        "visibleScaleType": 0
-      }
     ],
     "includedLayerIds": [
     ],
@@ -31,48 +15,43 @@
   "frame": {
     "_class": "rect",
     "constrainProportions": false,
-    "height": 76,
-    "width": 76,
-    "x": 421,
-    "y": 186
+    "height": 216,
+    "width": 244,
+    "x": 911.4517441188545,
+    "y": -692.5662501569649
   },
   "groupLayout": {
     "_class": "MSImmutableFreeformGroupLayout"
   },
-  "hasBackgroundColor": false,
   "hasClickThrough": false,
   "hasClippingMask": false,
-  "horizontalRulerData": {
-    "_class": "rulerData",
-    "base": 0,
-    "guides": [
-    ]
-  },
-  "includeBackgroundColorInExport": true,
-  "includeInCloudUpload": true,
   "isFixedToViewport": false,
   "isFlippedHorizontal": false,
   "isFlippedVertical": false,
-  "isFlowHome": false,
-  "isLocked": false,
+  "isLocked": true,
   "isVisible": true,
   "layerListExpandedType": 1,
   "layers": [
     {
-      "class": "symbolInstance",
-      "id": "1A6F3560-0B3A-4868-A077-2039663CEDFA"
+      "class": "shapePath",
+      "id": "D9D240DD-39A7-47F9-A072-93DD85DCE5C2"
+    },
+    {
+      "class": "shapePath",
+      "id": "A1550937-04BB-4E54-8424-9E681B36C1FC"
+    },
+    {
+      "class": "shapePath",
+      "id": "8CAA3F21-4638-40CC-8771-73839FCB9DDA"
     }
   ],
   "maintainScrollPosition": false,
-  "name": "icon_76pt",
+  "name": "A-Icon",
   "nameIsFixed": true,
-  "presetDictionary": {
-  },
-  "resizesContent": false,
   "resizingConstraint": 63,
   "resizingType": 0,
   "rotation": 0,
-  "shouldBreakMaskChain": true,
+  "shouldBreakMaskChain": false,
   "style": {
     "_class": "style",
     "blur": {
@@ -80,7 +59,7 @@
       "center": "{0.5, 0.5}",
       "isEnabled": false,
       "motionAngle": 0,
-      "radius": 6.333333333333333,
+      "radius": 10,
       "saturation": 1,
       "type": 0
     },
@@ -117,11 +96,5 @@
     ],
     "startMarkerType": 0,
     "windingRule": 1
-  },
-  "verticalRulerData": {
-    "_class": "rulerData",
-    "base": 0,
-    "guides": [
-    ]
   }
 }
