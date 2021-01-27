@@ -6,7 +6,7 @@
 </p>
 
 
-[![Mock-Store-Auto.gif](https://i.postimg.cc/VLXqLzvJ/Mock-Store-Auto.gif)](https://postimg.cc/rKF0fXST)
+<img src="MockStore.gif" height="500">
 
 
 ## Description
