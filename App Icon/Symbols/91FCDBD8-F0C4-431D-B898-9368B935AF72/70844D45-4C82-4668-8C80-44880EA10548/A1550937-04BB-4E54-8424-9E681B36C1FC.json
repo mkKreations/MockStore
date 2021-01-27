@@ -259,7 +259,7 @@
           "blendMode": 0,
           "opacity": 1
         },
-        "fillType": 0,
+        "fillType": 1,
         "gradient": {
           "_class": "gradient",
           "elipseLength": 0,
@@ -271,9 +271,9 @@
               "color": {
                 "_class": "color",
                 "alpha": 1,
-                "blue": 1,
-                "green": 1,
-                "red": 1
+                "blue": 0.984313725490196,
+                "green": 0.7803921568627451,
+                "red": 0.1764705882352942
               },
               "position": 0
             },
@@ -282,9 +282,9 @@
               "color": {
                 "_class": "color",
                 "alpha": 1,
-                "blue": 0,
-                "green": 0,
-                "red": 0
+                "blue": 0.9490196078431372,
+                "green": 0.4431372549019608,
+                "red": 0.1137254901960785
               },
               "position": 1
             }

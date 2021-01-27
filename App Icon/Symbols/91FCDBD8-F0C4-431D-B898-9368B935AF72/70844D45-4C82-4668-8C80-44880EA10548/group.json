@@ -1,8 +1,8 @@
 {
-  "_class": "shapeGroup",
-  "booleanOperation": 0,
+  "_class": "group",
+  "booleanOperation": -1,
   "clippingMaskMode": 0,
-  "do_objectID": "68FE351B-7FA0-4168-B49E-856E73C43CB9",
+  "do_objectID": "70844D45-4C82-4668-8C80-44880EA10548",
   "exportOptions": {
     "_class": "exportOptions",
     "exportFormats": [
@@ -15,8 +15,8 @@
   "frame": {
     "_class": "rect",
     "constrainProportions": false,
-    "height": 366,
-    "width": 326,
+    "height": 216,
+    "width": 244,
     "x": 0,
     "y": 0
   },
@@ -30,19 +30,23 @@
   "isFlippedVertical": false,
   "isLocked": false,
   "isVisible": true,
-  "layerListExpandedType": 0,
+  "layerListExpandedType": 2,
   "layers": [
     {
       "class": "shapePath",
-      "id": "A603D95B-4E94-4A8D-ACC5-2D6E7C671FBC"
+      "id": "D9D240DD-39A7-47F9-A072-93DD85DCE5C2"
     },
     {
       "class": "shapePath",
-      "id": "DCB10957-303B-4F75-A74F-00022F9F6B03"
+      "id": "A1550937-04BB-4E54-8424-9E681B36C1FC"
+    },
+    {
+      "class": "shapePath",
+      "id": "8CAA3F21-4638-40CC-8771-73839FCB9DDA"
     }
   ],
   "maintainScrollPosition": false,
-  "name": "Shadows",
+  "name": "A-Icon",
   "nameIsFixed": true,
   "resizingConstraint": 63,
   "resizingType": 0,
@@ -84,58 +88,6 @@
     },
     "endMarkerType": 0,
     "fills": [
-      {
-        "_class": "fill",
-        "color": {
-          "_class": "color",
-          "alpha": 0.25,
-          "blue": 0,
-          "green": 0,
-          "red": 0
-        },
-        "contextSettings": {
-          "_class": "graphicsContextSettings",
-          "blendMode": 7,
-          "opacity": 1
-        },
-        "fillType": 0,
-        "gradient": {
-          "_class": "gradient",
-          "elipseLength": 0,
-          "from": "{0.5, 0}",
-          "gradientType": 0,
-          "stops": [
-            {
-              "_class": "gradientStop",
-              "color": {
-                "_class": "color",
-                "alpha": 1,
-                "blue": 1,
-                "green": 1,
-                "red": 1
-              },
-              "position": 0
-            },
-            {
-              "_class": "gradientStop",
-              "color": {
-                "_class": "color",
-                "alpha": 1,
-                "blue": 0,
-                "green": 0,
-                "red": 0
-              },
-              "position": 1
-            }
-          ],
-          "to": "{0.5, 1}"
-        },
-        "isEnabled": true,
-        "noiseIndex": 0,
-        "noiseIntensity": 0,
-        "patternFillType": 1,
-        "patternTileScale": 1
-      }
     ],
     "innerShadows": [
     ],
@@ -144,6 +96,5 @@
     ],
     "startMarkerType": 0,
     "windingRule": 1
-  },
-  "windingRule": 1
+  }
 }

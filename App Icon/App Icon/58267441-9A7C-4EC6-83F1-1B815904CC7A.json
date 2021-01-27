@@ -17,10 +17,10 @@
   "frame": {
     "_class": "rect",
     "constrainProportions": true,
-    "height": 342,
-    "width": 342,
-    "x": 454,
-    "y": -754
+    "height": 512,
+    "width": 512,
+    "x": 212,
+    "y": -841
   },
   "hasClippingMask": false,
   "image": {
@@ -33,7 +33,7 @@
   "isFlippedHorizontal": false,
   "isFlippedVertical": false,
   "isLocked": true,
-  "isVisible": true,
+  "isVisible": false,
   "layerListExpandedType": 0,
   "maintainScrollPosition": false,
   "name": "App_Store_Icon",

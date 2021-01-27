@@ -28,7 +28,7 @@
   "isFixedToViewport": false,
   "isFlippedHorizontal": false,
   "isFlippedVertical": false,
-  "isLocked": false,
+  "isLocked": true,
   "isVisible": true,
   "layerListExpandedType": 0,
   "maintainScrollPosition": false,
@@ -137,33 +137,33 @@
         "gradient": {
           "_class": "gradient",
           "elipseLength": 0,
-          "from": "{0.5, 0}",
+          "from": "{0.5, 0.0033456531938075703}",
           "gradientType": 0,
           "stops": [
             {
               "_class": "gradientStop",
               "color": {
                 "_class": "color",
-                "alpha": 1,
-                "blue": 0.15,
-                "green": 0.5041666666666668,
-                "red": 1
+                "alpha": 0.75,
+                "blue": 0.1568627450980392,
+                "green": 0.1568627450980392,
+                "red": 0.1568627450980392
               },
-              "position": 0
+              "position": 0.0006862331081081141
             },
             {
               "_class": "gradientStop",
               "color": {
                 "_class": "color",
                 "alpha": 1,
-                "blue": 0.4941176470588236,
-                "green": 0.06666666666666667,
-                "red": 1
+                "blue": 0.07058823529411765,
+                "green": 0.07058823529411765,
+                "red": 0.07058823529411765
               },
               "position": 1
             }
           ],
-          "to": "{0.5, 1}"
+          "to": "{0.5, 0.9633775496673318}"
         },
         "isEnabled": true,
         "noiseIndex": 0,
